@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+
+# Environment Variables & Secrets
+.env
+*.pem
+
+# Airflow / Logs
+airflow/logs/
+airflow/airflow.db
+airflow/*.pid
+
+# dbt
+dbt_foodflow/target/
+dbt_foodflow/dbt_packages/
+dbt_foodflow/logs/
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
