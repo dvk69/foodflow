@@ -24,3 +24,8 @@ dbt_foodflow/logs/
 .DS_Store
 .vscode/
 .idea/
+
+# Raw Data & Databases
+ingestion/raw_data/
+*.duckdb
+*.duckdb.wal
