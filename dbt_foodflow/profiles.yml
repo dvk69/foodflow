@@ -1,0 +1,7 @@
+dbt_foodflow:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "/Users/dvk/Documents/Jobs/Projects/Project2/foodflow/foodflow_raw.duckdb"
+      threads: 4

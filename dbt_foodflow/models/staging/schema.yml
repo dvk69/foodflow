@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_data
+    schema: main
+    tables:
+      - name: raw_iot_events
+      - name: raw_usda_foodkeeper
+      - name: raw_epa_baselines
+      - name: raw_instacart_orders

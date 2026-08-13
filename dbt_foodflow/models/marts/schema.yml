@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: dim_food_items
+    description: "Endorsed dimension table containing food shelf-life benchmarks."
+    meta:
+      endorsed: true
+      owner: "data-engineering@foodflow.io"
+      freshness_sla: "24h"
+    columns:
+      - name: item_id
+        tests:
+          - unique
+          - not_null
+      - name: item_name
+        tests:
+          - not_null
+
+  - name: fct_daily_waste_summary
+    description: "Golden fact table tracking daily aggregated waste vs EPA benchmarks."
+    meta:
+      endorsed: true
+      owner: "data-engineering@foodflow.io"
+      freshness_sla: "daily_06am_et"
+    columns:
+      - name: daily_waste_pk
+        tests:
+          - unique
+          - not_null
+      - name: waste_date
+        tests:
+          - not_null
+      - name: total_daily_waste_kg
+        tests:
+          - not_null
