@@ -3,7 +3,7 @@
 > **End-to-End Data & Recommendation Infrastructure for Commercial Food Waste Prevention**
 
 An enterprise-grade data platform simulating Mill's smart-bin telemetry, automated data quality SLAs, dbt golden transformations, and a hybrid LLM-driven recommendation engine.
-
+![CI/CD Pipeline](https://github.com/dvk69/foodflow/actions/workflows/ci.yml/badge.svg)
 ---
 
 ## 🏗 Architecture Overview
