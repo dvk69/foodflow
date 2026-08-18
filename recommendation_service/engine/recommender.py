@@ -38,6 +38,7 @@ class ShelfLifeAwareRecommender:
     self.trained = True
 
   def load_and_train(self):
+    # If the DuckDB file does not exist, use in-memory bootstrap fallback
     if not os.path.exists(self.db_path):
       self._bootstrap_fallback_data()
       return
