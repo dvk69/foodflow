@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
@@ -7,12 +8,15 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 import duckdb
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from recommendation_service.engine.recommender import ShelfLifeAwareRecommender
 from recommendation_service.rag.explainer import AnomalyExplainerRAG
 
+APP_ROOT = Path(__file__).resolve().parent
+
 app = FastAPI(
     title="FoodFlow Intelligent Recommendation & Anomaly Engine",
-    version="1.1.0",
+    version="1.2.0",
     description="SLA-backed recommendations and context-assisted anomaly diagnostics.",
 )
 
@@ -42,6 +46,11 @@ def startup_event():
     print("Initializing Pure-Python Recommender...")
     recommender.load_and_train()
     print("FoodFlow Engine Ready")
+
+
+@app.get("/", include_in_schema=False)
+def demo_home():
+    return FileResponse(APP_ROOT / "static" / "index.html")
 
 
 @app.get("/health")
