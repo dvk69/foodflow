@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: foodflow-demo
+    runtime: docker
+    plan: free
+    branch: portfolio-deployment
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: ALLOWED_ORIGINS
+        value: https://vineeth-kumar-portfolio.vkdeepala.chatgpt.site
